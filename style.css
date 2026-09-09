@@ -1,0 +1,456 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #08090f;
+    color: white;
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+#game {
+    width: 100%;
+    max-width: 1100px;
+    height: 100vh;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #20233b 0%,
+            #0d0e18 55%,
+            #05060a 100%
+        );
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   TOP UI
+========================= */
+
+.top-ui {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+
+    z-index: 10;
+}
+
+.player-status,
+.enemy-status {
+    width: 260px;
+
+    background: rgba(10, 11, 20, 0.8);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 12px;
+
+    padding: 12px;
+
+    backdrop-filter: blur(8px);
+}
+
+.status-title {
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    color: #8e93a8;
+
+    margin-bottom: 6px;
+}
+
+.enemy-status {
+    text-align: right;
+}
+
+.enemy-name {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   HP
+========================= */
+
+.hp-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 12px;
+}
+
+.hp-bar {
+    height: 10px;
+    flex: 1;
+
+    background: #252838;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.hp-fill {
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #25e67a,
+        #8affbd
+    );
+
+    transition: width 0.2s ease;
+}
+
+.enemy-fill {
+    background: linear-gradient(
+        90deg,
+        #ff3c55,
+        #ff8a8a
+    );
+}
+
+
+.score,
+.combo,
+.multiplier {
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.combo {
+    color: #ffd95a;
+}
+
+.multiplier {
+    color: #ff8cff;
+    font-weight: bold;
+}
+
+
+/* =========================
+   ARENA
+========================= */
+
+#arena {
+    position: absolute;
+
+    left: 50%;
+    top: 100px;
+
+    transform: translateX(-50%);
+
+    width: min(600px, 80vw);
+    height: calc(100% - 230px);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.02),
+            rgba(255,255,255,0.06)
+        );
+
+    border-left: 1px solid rgba(255,255,255,0.08);
+    border-right: 1px solid rgba(255,255,255,0.08);
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   LANES
+========================= */
+
+.lanes {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+}
+
+.lane {
+    position: relative;
+
+    width: 25%;
+    height: 100%;
+
+    border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.lane:last-child {
+    border-right: none;
+}
+
+
+.lane-key {
+    position: absolute;
+
+    bottom: 15px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 54px;
+    height: 54px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid rgba(255,255,255,0.25);
+
+    color: #aaa;
+
+    font-weight: bold;
+
+    background: rgba(255,255,255,0.04);
+}
+
+
+/* =========================
+   HIT LINE
+========================= */
+
+#hit-line {
+    position: absolute;
+
+    left: 0;
+    bottom: 42px;
+
+    width: 100%;
+    height: 3px;
+
+    background: rgba(255,255,255,0.5);
+
+    box-shadow:
+        0 0 10px rgba(255,255,255,0.5);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   JUDGEMENT
+========================= */
+
+#judgement {
+    position: absolute;
+
+    left: 50%;
+    top: 45%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 38px;
+    font-weight: 900;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 15px currentColor;
+}
+
+#judgement.show {
+    animation: judgement-pop 0.45s ease-out;
+}
+
+
+@keyframes judgement-pop {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(0.4);
+    }
+
+    25% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1.25);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+}
+
+
+/* =========================
+   BATTLE MESSAGE
+========================= */
+
+#battle-message {
+    position: absolute;
+
+    top: 40%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: rgba(255,255,255,0.4);
+
+    font-size: 22px;
+    letter-spacing: 4px;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   MOBILE CONTROLS
+========================= */
+
+#mobile-controls {
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: none;
+
+    gap: 10px;
+
+    z-index: 20;
+}
+
+#mobile-controls button {
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(255,255,255,0.2);
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+#mobile-controls button:active {
+    transform: scale(0.9);
+    background: rgba(255,255,255,0.2);
+}
+
+
+/* =========================
+   START BUTTON
+========================= */
+
+#start-button {
+
+    position: absolute;
+
+    bottom: 25px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 12px 30px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #08090f;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 30;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .top-ui {
+        padding: 10px;
+    }
+
+    .player-status,
+    .enemy-status {
+        width: 45%;
+        padding: 8px;
+    }
+
+    .status-title {
+        font-size: 9px;
+    }
+
+    .enemy-name {
+        font-size: 11px;
+    }
+
+    .score,
+    .combo,
+    .multiplier {
+        font-size: 10px;
+    }
+
+    #arena {
+        top: 105px;
+
+        width: 94vw;
+
+        height: calc(100% - 230px);
+    }
+
+    #mobile-controls {
+        display: flex;
+    }
+
+    #start-button {
+        display: none;
+    }
+
+}
