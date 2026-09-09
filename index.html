@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
@@ -8,7 +9,7 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     >
 
-    <title>Endo</title>
+    <title>ENDO</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,119 +18,329 @@
 
     <main id="game">
 
-        <!-- TOP UI -->
-        <header class="top-ui">
+        <!-- =========================
+             TITLE SCREEN
+        ========================== -->
 
-            <section class="player-status">
-                <div class="status-title">PLAYER</div>
+        <section id="title-screen" class="screen active">
 
-                <div class="hp-container">
-                    <div class="hp-bar">
-                        <div id="player-hp" class="hp-fill"></div>
-                    </div>
+            <div class="title-content">
 
-                    <span id="player-hp-text">100 / 100</span>
-                </div>
+                <p class="eyebrow">A RHYTHM BATTLE GAME</p>
 
-                <div class="score">
-                    SCORE:
-                    <span id="score">0</span>
-                </div>
+                <h1>ENDO</h1>
 
-                <div class="combo">
-                    COMBO:
-                    <span id="combo">0</span>
-                </div>
+                <p class="title-subtitle">
+                    When power listens to the devil,
+                    who will make it listen to the people?
+                </p>
 
-                <div class="multiplier">
-                    x<span id="multiplier">1</span>
-                </div>
-            </section>
+                <button id="start-game-button" class="main-button">
+                    START GAME
+                </button>
 
+                <div class="language-buttons">
 
-            <section class="enemy-status">
+                    <button
+                        class="language-button active"
+                        data-language="eng"
+                    >
+                        ENG
+                    </button>
 
-                <div class="status-title">ENEMY</div>
+                    <button
+                        class="language-button"
+                        data-language="ind"
+                    >
+                        IND
+                    </button>
 
-                <div class="enemy-name">
-                    END0 FOLLOWER
-                </div>
-
-                <div class="hp-container">
-
-                    <div class="hp-bar enemy-hp-bar">
-                        <div id="enemy-hp" class="hp-fill enemy-fill"></div>
-                    </div>
-
-                    <span id="enemy-hp-text">100 / 100</span>
-
-                </div>
-
-            </section>
-
-        </header>
-
-
-        <!-- GAME ARENA -->
-        <section id="arena">
-
-            <div id="battle-message">
-                READY?
-            </div>
-
-            <div class="lanes">
-
-                <div class="lane" data-key="Q">
-                    <div class="lane-key">Q</div>
-                </div>
-
-                <div class="lane" data-key="W">
-                    <div class="lane-key">W</div>
-                </div>
-
-                <div class="lane" data-key="E">
-                    <div class="lane-key">E</div>
-                </div>
-
-                <div class="lane" data-key="R">
-                    <div class="lane-key">R</div>
                 </div>
 
             </div>
 
+            <div class="title-footer">
+                A GAME ABOUT POWER, PEOPLE, AND CONSEQUENCES
+            </div>
 
-            <!-- HIT LINE -->
-            <div id="hit-line"></div>
+
+        </section>
 
 
-            <!-- JUDGEMENT -->
-            <div id="judgement">
-                PERFECT
+        <!-- =========================
+             NAME SCREEN
+        ========================== -->
+
+        <section id="name-screen" class="screen">
+
+            <div class="panel">
+
+                <p class="eyebrow">
+                    YOUR JOURNEY BEGINS
+                </p>
+
+                <h2 id="name-title">
+                    NAME YOUR CHARACTER
+                </h2>
+
+                <p id="name-description">
+                    Choose a name for the person who will
+                    stand against the rulers of Endo.
+                </p>
+
+                <input
+                    id="character-name"
+                    type="text"
+                    maxlength="20"
+                    autocomplete="off"
+                    placeholder="Enter your name"
+                >
+
+                <p class="default-name">
+                    Leave blank to become
+                    <strong id="default-name-text">
+                        Rakyat Biasa
+                    </strong>.
+                </p>
+
+                <button
+                    id="name-confirm-button"
+                    class="main-button"
+                >
+                    CONTINUE
+                </button>
+
             </div>
 
         </section>
 
 
-        <!-- MOBILE CONTROLS -->
-        <section id="mobile-controls">
+        <!-- =========================
+             STORY SCREEN
+        ========================== -->
 
-            <button data-key="Q">Q</button>
-            <button data-key="W">W</button>
-            <button data-key="E">E</button>
-            <button data-key="R">R</button>
+        <section id="story-screen" class="screen">
+
+            <div class="story-container">
+
+                <div class="story-label">
+                    ENDO
+                </div>
+
+                <div class="story-text-container">
+
+                    <p
+                        id="story-text"
+                        class="story-text"
+                    ></p>
+
+                </div>
+
+                <button
+                    id="story-next-button"
+                    class="main-button"
+                >
+                    CONTINUE
+                </button>
+
+            </div>
 
         </section>
 
 
-        <!-- START BUTTON -->
-        <button id="start-button">
-            START
-        </button>
+        <!-- =========================
+             STAGE INTRO
+        ========================== -->
+
+        <section id="stage-intro-screen" class="screen">
+
+            <div class="stage-intro">
+
+                <p class="stage-number">
+                    STAGE 01
+                </p>
+
+                <h2 id="stage-title">
+                    THE FOLLOWERS
+                </h2>
+
+                <p id="stage-description">
+                    Those who kneel before power
+                    will defend it.
+                </p>
+
+                <div class="stage-enemy-preview">
+
+                    <div class="enemy-placeholder">
+
+                        <div class="devil-eye left"></div>
+                        <div class="devil-eye right"></div>
+
+                    </div>
+
+                </div>
+
+                <button
+                    id="battle-start-button"
+                    class="main-button"
+                >
+                    ENTER BATTLE
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BATTLE SCREEN
+        ========================== -->
+
+        <section id="battle-screen" class="screen">
+
+            <header class="battle-ui">
+
+                <div class="player-status">
+
+                    <div class="ui-label">
+                        <span id="player-name-ui">
+                            PLAYER
+                        </span>
+                    </div>
+
+                    <div class="hp-wrapper">
+
+                        <div class="hp-bar">
+                            <div
+                                id="player-hp"
+                                class="hp-fill player-hp-fill"
+                            ></div>
+                        </div>
+
+                        <span id="player-hp-text">
+                            100 / 100
+                        </span>
+
+                    </div>
+
+                    <div class="battle-stats">
+
+                        <span>
+                            SCORE
+                            <strong id="score">0</strong>
+                        </span>
+
+                        <span>
+                            COMBO
+                            <strong id="combo">0</strong>
+                        </span>
+
+                        <span>
+                            x<strong id="multiplier">1</strong>
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="enemy-status">
+
+                    <div class="ui-label">
+                        STAGE 01
+                    </div>
+
+                    <div class="enemy-name">
+                        END0 FOLLOWER
+                    </div>
+
+                    <div class="hp-wrapper">
+
+                        <span id="enemy-hp-text">
+                            100 / 100
+                        </span>
+
+                        <div class="hp-bar">
+                            <div
+                                id="enemy-hp"
+                                class="hp-fill enemy-hp-fill"
+                            ></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <div id="battle-arena">
+
+                <div id="battle-background"></div>
+
+                <div id="battle-message">
+                    READY?
+                </div>
+
+                <div id="judgement"></div>
+
+                <div class="note-track" id="note-track"></div>
+
+                <div class="rhythm-pulse" id="rhythm-pulse"></div>
+
+                <div id="hit-line"></div>
+
+            </div>
+
+
+            <div id="mobile-controls">
+
+                <button data-key="Q" aria-label="Q"></button>
+                <button data-key="W" aria-label="W"></button>
+                <button data-key="E" aria-label="E"></button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RESULT SCREEN
+        ========================== -->
+
+        <section id="result-screen" class="screen">
+
+            <div class="panel">
+
+                <p class="eyebrow">
+                    STAGE COMPLETE
+                </p>
+
+                <h2 id="result-title">
+                    VICTORY
+                </h2>
+
+                <p id="result-description">
+                    The first wall has fallen.
+                </p>
+
+                <button
+                    id="result-button"
+                    class="main-button"
+                >
+                    CONTINUE
+                </button>
+
+            </div>
+
+        </section>
 
     </main>
 
+    <audio id="stage-music" preload="auto"></audio>
 
     <script src="game.js"></script>
 
 </body>
+
 </html>
