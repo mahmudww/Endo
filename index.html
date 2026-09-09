@@ -1,15 +1,135 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Endo: Rhythm of Rebellion</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>Endo</title>
+
     <link rel="stylesheet" href="style.css">
-    <!-- Memuat Phaser 3.90.0 dari CDN resmi -->
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.90.0/dist/phaser.min.js"></script>
 </head>
+
 <body>
-    <div id="game-container"></div>
-    <script type="module" src="src/game.js"></script>
+
+    <main id="game">
+
+        <!-- TOP UI -->
+        <header class="top-ui">
+
+            <section class="player-status">
+                <div class="status-title">PLAYER</div>
+
+                <div class="hp-container">
+                    <div class="hp-bar">
+                        <div id="player-hp" class="hp-fill"></div>
+                    </div>
+
+                    <span id="player-hp-text">100 / 100</span>
+                </div>
+
+                <div class="score">
+                    SCORE:
+                    <span id="score">0</span>
+                </div>
+
+                <div class="combo">
+                    COMBO:
+                    <span id="combo">0</span>
+                </div>
+
+                <div class="multiplier">
+                    x<span id="multiplier">1</span>
+                </div>
+            </section>
+
+
+            <section class="enemy-status">
+
+                <div class="status-title">ENEMY</div>
+
+                <div class="enemy-name">
+                    END0 FOLLOWER
+                </div>
+
+                <div class="hp-container">
+
+                    <div class="hp-bar enemy-hp-bar">
+                        <div id="enemy-hp" class="hp-fill enemy-fill"></div>
+                    </div>
+
+                    <span id="enemy-hp-text">100 / 100</span>
+
+                </div>
+
+            </section>
+
+        </header>
+
+
+        <!-- GAME ARENA -->
+        <section id="arena">
+
+            <div id="battle-message">
+                READY?
+            </div>
+
+            <div class="lanes">
+
+                <div class="lane" data-key="Q">
+                    <div class="lane-key">Q</div>
+                </div>
+
+                <div class="lane" data-key="W">
+                    <div class="lane-key">W</div>
+                </div>
+
+                <div class="lane" data-key="E">
+                    <div class="lane-key">E</div>
+                </div>
+
+                <div class="lane" data-key="R">
+                    <div class="lane-key">R</div>
+                </div>
+
+            </div>
+
+
+            <!-- HIT LINE -->
+            <div id="hit-line"></div>
+
+
+            <!-- JUDGEMENT -->
+            <div id="judgement">
+                PERFECT
+            </div>
+
+        </section>
+
+
+        <!-- MOBILE CONTROLS -->
+        <section id="mobile-controls">
+
+            <button data-key="Q">Q</button>
+            <button data-key="W">W</button>
+            <button data-key="E">E</button>
+            <button data-key="R">R</button>
+
+        </section>
+
+
+        <!-- START BUTTON -->
+        <button id="start-button">
+            START
+        </button>
+
+    </main>
+
+
+    <script src="game.js"></script>
+
 </body>
 </html>
