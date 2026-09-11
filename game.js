@@ -230,7 +230,7 @@ const endingText = {
 const stages = [
     {
         number: 1,
-        music: "stage1-endo.wav",
+        music: "stage1-endo.mp3",
         title: {
             eng: "THE FOLLOWERS",
             ind: "PARA PENJILAT"
@@ -254,7 +254,7 @@ const stages = [
     },
     {
         number: 2,
-        music: "stage2-endo.wav",
+        music: "stage2-endo.mp3",
         title: {
             eng: "THE GATEKEEPERS",
             ind: "PARA PENJAGA GERBANG"
@@ -279,7 +279,7 @@ const stages = [
     },
     {
         number: 3,
-        music: "stage3-endo.wav",
+        music: "stage3-endo.mp3",
         title: {
             eng: "LILBA, THE MIDDLE DEVIL",
             ind: "LILBA, DEVIL PANGKAT SEDANG"
@@ -304,7 +304,7 @@ const stages = [
     }
     ,{
         number: 4,
-        music: "stage4-endo.wav",
+        music: "stage4-endo.mp3",
         title: {
             eng: "TED, THE HIGH DEVIL",
             ind: "TED, DEVIL PANGKAT TINGGI"
@@ -329,7 +329,7 @@ const stages = [
     },
     {
         number: 5,
-        music: "stage5-endo.wav",
+        music: "stage5-endo.mp3",
         title: {
             eng: "DORORO, THE TYRANNY KING",
             ind: "DORORO, RAJA TIRANI"
