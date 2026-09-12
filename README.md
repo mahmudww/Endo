@@ -86,7 +86,7 @@ Read the rhythm. Do not lose the beat.
 
 Because in Endo...
 
-> **Every beat can become an act of resistance.**
+**Every beat can become an act of resistance.**
 
 
-## Play here: mahmudww.github.io/Endo
+Play here: mahmudww.github.io/Endo
